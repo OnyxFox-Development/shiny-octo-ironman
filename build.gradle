@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+group="net.ofd.soi"
+mainClassName=name
+
+jar {
+	baseName="SOI"
+	version="0.0.1"
+	manifest {
+		attributes 'Main-Class': group + "." + mainClassName
+	}
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.1'
+}
