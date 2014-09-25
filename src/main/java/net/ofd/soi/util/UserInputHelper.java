@@ -1,9 +1,13 @@
 package net.ofd.soi.util;
 
+import java.util.Scanner;
+
 public class UserInputHelper
 {
-	public static void promptBasic (String text)
+	public static String promptBasic ( String text )
 	{
-		
+		Scanner s = new Scanner( System.in );
+		CLIHelper.print( text + ": " );
+		return s.next();
 	}
 }
