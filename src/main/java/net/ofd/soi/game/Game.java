@@ -24,6 +24,8 @@ import net.ofd.soi.util.*;
 
 public class Game
 {
+	private int playerTurn = 0;
+
 	public Game ()
 	{
 		while ( true )
@@ -44,8 +46,20 @@ public class Game
 
 	}
 
+	public int getPlayerTurn ()
+	{
+		return playerTurn;
+	}
+
+	public void setPlayerTurn ( int playerTurn )
+	{
+		this.playerTurn = playerTurn;
+	}
+
 	public void start ()
 	{
 
 	}
+
+
 }

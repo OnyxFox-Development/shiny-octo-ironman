@@ -20,11 +20,33 @@ package net.ofd.soi.cli;
 
 public class Cli
 {
-	private static Dimension size;
+	private static Dimension Size;
+	private static String Title;
 
 	public Cli ( int width, int height )
 	{
-		size.setDimensions( width, height );
+		setSize( new Dimension( width, height ) );
+	}
 
+	public static Dimension getSize ()
+	{
+		return Size;
+	}
+
+	public static Dimension setSize ( Dimension size )
+	{
+		Size = size;
+		return Size;
+	}
+
+	public static String getTitle ()
+	{
+		return Title;
+	}
+
+	public static String setTitle ( String title )
+	{
+		Title = title;
+		return Title;
 	}
 }
