@@ -16,15 +16,15 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.ofd.soi;
+package net.ofd.soi.cli;
 
-import net.ofd.soi.game.Game;
-
-public class SOI
+public class Cli
 {
-	public static void main(String[] args)
+	private static Dimension size;
+
+	public Cli ( int width, int height )
 	{
-		Game game = new Game();
-		game.start();
+		size.setDimensions( width, height );
+
 	}
 }

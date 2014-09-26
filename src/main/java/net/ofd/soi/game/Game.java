@@ -1,39 +1,53 @@
+/*
+ * Copyright (c) 2014. OnyxFox Development
+ * This file is part of SOI.
+ *
+ * SOI is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * SOI is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package net.ofd.soi.game;
 
 import net.ofd.soi.error.InvalidNameException;
+import net.ofd.soi.util.CliHelper;
 import net.ofd.soi.util.UserInputHelper;
-
-import java.util.ArrayList;
 
 public class Game
 {
-	public ArrayList< String > playerNames = new ArrayList<>();
-	public String nameRegex = "(?i:[a-z0-9]+)";
+
 
 	public Game ()
 	{
 		try
 		{
 			String player1Name = UserInputHelper.promptBasic( "Player 1 Name" );
-			if ( ! player1Name.matches( nameRegex ) )
-			{
-				throw new InvalidNameException( player1Name);
-			}
-			String player2Name = UserInputHelper.promptBasic( "Player 2 Name" );
-			if ( ! player2Name.matches( nameRegex ) )
-			{
-				throw new InvalidNameException( player2Name );
-			}
-			playerNames.add( player1Name );
-			playerNames.add( player2Name );
+			PlayerRegistry.addPlayer( player1Name );
 		}
 		catch ( InvalidNameException e )
 		{
-			e.printStackTrace();
-			System.exit( 1 );
+			CliHelper.print( "Invalid characters in name " + e.Name );
+		}
+		try
+		{
+			String player2Name = UserInputHelper.promptBasic( "Player 2 Name" );
+			PlayerRegistry.addPlayer( player2Name );
+		}
+		catch ( InvalidNameException e )
+		{
+			CliHelper.print( "Invalid characters in name " + e.Name );
+
 		}
 	}
-
 	public void start ()
 	{
 

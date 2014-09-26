@@ -16,15 +16,47 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.ofd.soi;
+package net.ofd.soi.cli;
 
-import net.ofd.soi.game.Game;
-
-public class SOI
+public class Dimension
 {
-	public static void main(String[] args)
+	private int[] Dimensions = new int[] { };
+
+	public Dimension ( int width, int height )
 	{
-		Game game = new Game();
-		game.start();
+		Dimensions[ 0 ] = width;
+		Dimensions[ 1 ] = height;
+	}
+
+	public int[] getDimensions ()
+	{
+		return Dimensions;
+	}
+
+	public int[] setDimensions ( int width, int height )
+	{
+		Dimensions[ 0 ] = width;
+		Dimensions[ 1 ] = height;
+		return Dimensions;
+	}
+
+	public int getWidth ()
+	{
+		return getDimensions()[ 0 ];
+	}
+
+	public void setWidth ( int width )
+	{
+		setDimensions( width, getHeight() );
+	}
+
+	public int getHeight ()
+	{
+		return getDimensions()[ 1 ];
+	}
+
+	public void setHeight ( int height )
+	{
+		setDimensions( getWidth(), height );
 	}
 }
