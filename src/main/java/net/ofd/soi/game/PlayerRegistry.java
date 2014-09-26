@@ -18,50 +18,27 @@
 
 package net.ofd.soi.game;
 
-import net.ofd.soi.error.InvalidNameException;
+import net.ofd.soi.error.*;
+import net.ofd.soi.player.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class PlayerRegistry
 {
-	private static ArrayList< Map< String, Object > > Players = new ArrayList<>();
-	private static String NameRegex = "(?i:[a-z0-9]+)";
+	private static ArrayList< Player > Players = new ArrayList<>();
 
-	public static void addPlayer ( String playerName, int playerId ) throws InvalidNameException
+	public static void registerPlayer ( Player player, int playerId )
 	{
-		if ( ! playerName.matches( NameRegex ) )
-		{
-			throw new InvalidNameException( playerName );
-		}
-		setPlayerProperty( playerId, "playerName", playerName );
+		Players.add( playerId, player );
 	}
 
-	public static void addPlayer ( String playerName ) throws InvalidNameException
+	public static void registerPlayer ( Player player ) throws InvalidNameException
 	{
-		addPlayer( playerName, getGloballyUniquePlayerId() );
+		registerPlayer( player, getGloballyUniquePlayerId() );
 	}
 
 	public static int getGloballyUniquePlayerId ()
 	{
 		return Players.size();
-	}
-
-	public static void setPlayerProperty ( int playerId, String key, Object value )
-	{
-		if ( Players.get( playerId ) == null )
-		{
-			Players.add( playerId, new HashMap< String, Object >() );
-		}
-		Players.get( playerId ).put( key, value );
-	}
-
-	public static void addPlayers ( String... playerNames ) throws InvalidNameException
-	{
-		for ( String playerName : playerNames )
-		{
-			addPlayer( playerName );
-		}
 	}
 }

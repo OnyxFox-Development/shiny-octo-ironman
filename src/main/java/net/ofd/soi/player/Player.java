@@ -16,15 +16,33 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.ofd.soi.error;
+package net.ofd.soi.player;
 
-public class InvalidNameException extends Exception
+import net.ofd.soi.error.*;
+import net.ofd.soi.util.*;
+
+public class Player
 {
-	public final String Name;
+	private static String NameRegex = "(?i:[a-z0-9]+)";
 
-	public InvalidNameException ( String s )
+	public String name;
+
+	public Player ( String name ) throws InvalidNameException
 	{
-		super( String.format( "Name '%s' contains invalid characters", s ) );
-		Name = s;
+		if ( ! name.matches( NameRegex ) )
+		{
+			throw new InvalidNameException( getPlayerName() );
+		}
+		this.name = name;
+	}
+
+	public Player () throws InvalidNameException
+	{
+		this( UserInputHelper.promptBasic( "Player Name" ) );
+	}
+
+	public String getPlayerName ()
+	{
+		return this.name;
 	}
 }

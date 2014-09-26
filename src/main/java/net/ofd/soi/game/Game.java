@@ -18,36 +18,32 @@
 
 package net.ofd.soi.game;
 
-import net.ofd.soi.error.InvalidNameException;
-import net.ofd.soi.util.CliHelper;
-import net.ofd.soi.util.UserInputHelper;
+import net.ofd.soi.error.*;
+import net.ofd.soi.player.*;
+import net.ofd.soi.util.*;
 
 public class Game
 {
-
-
 	public Game ()
 	{
-		try
+		while ( true )
 		{
-			String player1Name = UserInputHelper.promptBasic( "Player 1 Name" );
-			PlayerRegistry.addPlayer( player1Name );
+			try
+			{
+				Player player1 = new Player();
+				Player player2 = new Player();
+				PlayerRegistry.registerPlayer( player1 );
+				PlayerRegistry.registerPlayer( player2 );
+				break;
+			}
+			catch ( InvalidNameException e )
+			{
+				CliHelper.print( String.format( "Invalid characters in name '%s'", e.Name ) );
+			}
 		}
-		catch ( InvalidNameException e )
-		{
-			CliHelper.print( "Invalid characters in name " + e.Name );
-		}
-		try
-		{
-			String player2Name = UserInputHelper.promptBasic( "Player 2 Name" );
-			PlayerRegistry.addPlayer( player2Name );
-		}
-		catch ( InvalidNameException e )
-		{
-			CliHelper.print( "Invalid characters in name " + e.Name );
 
-		}
 	}
+
 	public void start ()
 	{
 

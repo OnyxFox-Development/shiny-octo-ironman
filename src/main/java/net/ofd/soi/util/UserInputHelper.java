@@ -18,7 +18,7 @@
 
 package net.ofd.soi.util;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class UserInputHelper
 {
