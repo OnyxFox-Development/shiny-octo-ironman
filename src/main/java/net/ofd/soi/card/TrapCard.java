@@ -17,21 +17,18 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'idea'
+package net.ofd.soi.card;
 
-group = "net.ofd.soi"
-mainClassName = group + "." + name
+public class TrapCard extends Card
+{
+	public TrapCard ()
+	{
+		super();
+	}
 
-jar {
-    baseName = "SOI"
-    version = "0.0.1"
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+	@Override
+	public TrapCard setCardName ( String cardName )
+	{
+		return ( TrapCard ) super.setCardName( cardName );
+	}
 }

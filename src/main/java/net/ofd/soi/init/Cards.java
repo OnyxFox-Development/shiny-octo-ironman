@@ -17,21 +17,20 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'idea'
+package net.ofd.soi.init;
 
-group = "net.ofd.soi"
-mainClassName = group + "." + name
+import net.ofd.soi.card.*;
 
-jar {
-    baseName = "SOI"
-    version = "0.0.1"
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-}
+public class Cards
+{
+	//Card list obtained from: http://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&sess=2&sort=1&rp=100&page=1
+	//Spell Cards
+	public static SpellCard aCellBreedingDevice = new SpellCard().setCardName( "aCellBreedingDevice" ).setCardSpellType( SpellType.CONTINUOUS );
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+	//Trap Cards
+
+
+	//Monster Cards
+	public static MonsterCard threeHumpLacooda = new MonsterCard().setCardName( "threeHumpLacooda" ).setAtk( 500 ).setDef( 1500 ).setLevel( 3 ).setCardAttribute( Attribute.EARTH ).setType( MonsterType.BEAST ).setSecondType( SecondaryMonsterType.EFFECT );
+
 }

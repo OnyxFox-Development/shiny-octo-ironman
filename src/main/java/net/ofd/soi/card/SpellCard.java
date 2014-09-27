@@ -17,21 +17,31 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'idea'
+package net.ofd.soi.card;
 
-group = "net.ofd.soi"
-mainClassName = group + "." + name
+public class SpellCard extends Card
+{
+	private SpellType CardSpellType;
 
-jar {
-    baseName = "SOI"
-    version = "0.0.1"
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-}
+	public SpellCard ()
+	{
+		super();
+	}
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+	@Override
+	public SpellCard setCardName ( String cardName )
+	{
+		return ( SpellCard ) super.setCardName( cardName );
+	}
+
+	public SpellType getCardSpellType ()
+	{
+		return CardSpellType;
+	}
+
+	public SpellCard setCardSpellType ( SpellType cardSpellType )
+	{
+		CardSpellType = cardSpellType;
+		return this;
+	}
 }

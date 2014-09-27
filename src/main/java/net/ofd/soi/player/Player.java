@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2014. OnyxFox Development
+ * Copyright (c) 2014 OnyxFox Development
+ *
  * This file is part of SOI.
  *
  * SOI is free software: you can redistribute it and/or modify
@@ -18,31 +19,37 @@
 
 package net.ofd.soi.player;
 
-import net.ofd.soi.error.*;
-import net.ofd.soi.util.*;
+import net.ofd.soi.error.InvalidNameException;
+import net.ofd.soi.util.UserInputHelper;
 
 public class Player
 {
 	private static String NameRegex = "(?i:[a-z0-9]+)";
 
-	public String name;
-
-	public Player ( String name ) throws InvalidNameException
-	{
-		if ( ! name.matches( NameRegex ) )
-		{
-			throw new InvalidNameException( getPlayerName() );
-		}
-		this.name = name;
-	}
+	private String Name;
 
 	public Player () throws InvalidNameException
 	{
 		this( UserInputHelper.promptBasic( "Player Name" ) );
 	}
 
-	public String getPlayerName ()
+	public Player ( String name ) throws InvalidNameException
 	{
-		return this.name;
+		if ( ! name.matches( NameRegex ) )
+		{
+			throw new InvalidNameException( getName() );
+		}
+		this.Name = name;
+	}
+
+	public String getName ()
+	{
+		return Name;
+	}
+
+	public Player setName ( String name )
+	{
+		Name = name;
+		return this;
 	}
 }

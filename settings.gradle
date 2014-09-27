@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2014. OnyxFox Development
+ * Copyright (c) 2014 OnyxFox Development
+ *
  * This file is part of SOI.
  *
  * SOI is free software: you can redistribute it and/or modify
@@ -16,4 +17,4 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-rootProject.name="SOI"
+rootProject.name = "SOI"

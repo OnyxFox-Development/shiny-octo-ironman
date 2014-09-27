@@ -17,21 +17,12 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'idea'
+package net.ofd.soi.card.effect;
 
-group = "net.ofd.soi"
-mainClassName = group + "." + name
+public class Effect
+{
+	public Effect ()
+	{
 
-jar {
-    baseName = "SOI"
-    version = "0.0.1"
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+	}
 }

@@ -17,21 +17,15 @@
  * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-apply plugin: 'java'
-apply plugin: 'application'
-apply plugin: 'idea'
+package net.ofd.soi.card.effect;
 
-group = "net.ofd.soi"
-mainClassName = group + "." + name
+import net.ofd.soi.player.Player;
 
-jar {
-    baseName = "SOI"
-    version = "0.0.1"
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
-}
+public class TheeHumpLacoodaEffect extends Effect implements IEffect
+{
+	@Override
+	public void run ( Player player )
+	{
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+	}
 }
