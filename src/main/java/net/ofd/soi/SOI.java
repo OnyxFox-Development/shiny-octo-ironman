@@ -18,9 +18,12 @@
 
 package net.ofd.soi;
 
+import net.ofd.soi.eventhandler.EventBus;
 import net.ofd.soi.game.Game;
 
 public class SOI {
+	public static EventBus EVENT_BUS = new EventBus();
+
 	public static void main(String[] args) {
 		Game game = new Game();
 		game.start();

@@ -19,17 +19,21 @@
 package net.ofd.soi.init;
 
 import net.ofd.soi.card.*;
+import net.ofd.soi.game.CardRegistry;
 
 public class Cards
 {
 	//Card list obtained from: http://www.db.yugioh-card.com/yugiohdb/card_search.action?ope=1&sess=2&sort=1&rp=100&page=1
 	//Spell Cards
-	public static SpellCard aCellBreedingDevice = new SpellCard().setCardName( "aCellBreedingDevice" ).setCardSpellType( SpellType.CONTINUOUS );
+	public static final SpellCard aCellBreedingDevice = new SpellCard().setCardName("aCellBreedingDevice").setCardSpellType(SpellType.CONTINUOUS);
 
 	//Trap Cards
 
 
 	//Monster Cards
-	public static MonsterCard threeHumpLacooda = new MonsterCard().setCardName( "threeHumpLacooda" ).setAtk( 500 ).setDef( 1500 ).setLevel( 3 ).setCardAttribute( Attribute.EARTH ).setType( MonsterType.BEAST ).setSecondType( SecondaryMonsterType.EFFECT );
+	public static final MonsterCard threeHumpLacooda = new MonsterCard().setCardName("threeHumpLacooda").setAtk(500).setDef(1500).setLevel(3).setCardAttribute(Attribute.EARTH).setType(MonsterType.BEAST).setSecondType(SecondaryMonsterType.EFFECT);
 
+	public static void init() {
+		CardRegistry.registerCard("aCellBreedingDevice", aCellBreedingDevice);
+	}
 }

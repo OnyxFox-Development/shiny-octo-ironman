@@ -18,7 +18,9 @@
 
 package net.ofd.soi.game;
 
+import net.ofd.soi.SOI;
 import net.ofd.soi.card.Card;
+import net.ofd.soi.event.CardRegisterEvent;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,6 +31,12 @@ public class CardRegistry
 
 	public static void registerCard ( String unlocalizedCardName, Card card )
 	{
-		Cards.put( unlocalizedCardName, card );
+		if (!SOI.EVENT_BUS.post(new CardRegisterEvent(card))) {
+			Cards.put(unlocalizedCardName, card);
+		}
+	}
+
+	public Card getCardByName(String name) {
+		return Cards.get(name);
 	}
 }
