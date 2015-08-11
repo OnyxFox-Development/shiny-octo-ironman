@@ -1,9 +1,6 @@
 #gradle
-.gradle/*
-gradle/*
-gradlew
-gradlew.bat
-build/*
+.gradle/
+build/
 
 #idea
 *.iml

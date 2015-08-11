@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014. OnyxFox Development
+ * Copyright (c) 2015. OnyxFox Development
  * This file is part of SOI.
  *
  * SOI is free software: you can redistribute it and/or modify
@@ -18,12 +18,10 @@
 
 package net.ofd.soi;
 
-import net.ofd.soi.game.*;
+import net.ofd.soi.game.Game;
 
-public class SOI
-{
-	public static void main ( String[] args )
-	{
+public class SOI {
+	public static void main(String[] args) {
 		Game game = new Game();
 		game.start();
 	}

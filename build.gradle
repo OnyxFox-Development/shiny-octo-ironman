@@ -1,37 +1,35 @@
-/*
- * Copyright (c) 2014 OnyxFox Development
- *
- * This file is part of SOI.
- *
- * SOI is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * SOI is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with SOI.  If not, see <http://www.gnu.org/licenses/>.
- */
-
+apply from: 'gradle.properties'
 apply plugin: 'java'
-apply plugin: 'application'
+apply plugin: 'maven'
+//apply plugin: 'application'
 apply plugin: 'idea'
 
-group = "net.ofd.soi"
-mainClassName = group + "." + name
-
-jar {
-    baseName = "SOI"
-    version = "0.0.1"
-    manifest {
-        attributes 'Main-Class': mainClassName
-    }
+repositories {
+    mavenCentral()
 }
 
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
+dependencies {
+    compile 'com.google.code.gson:gson:2.3.1'
+}
+
+version = "${app_version}-${System.getenv("BUILD_NUMBER") ?: "custom"}"
+group = "net.ofd"
+
+//rootProject.name = "SOI"
+//archiveBaseName = "SOI"
+
+apply from: 'gradle/scripts/integration.gradle'
+
+task srcJar(type: Jar) {
+    from(sourceSets.main.allSource) {
+        include '**'
+    }
+
+    extension = 'jar'
+    classifier = 'src'
+}
+
+artifacts {
+    archives jar
+    archives srcJar
 }

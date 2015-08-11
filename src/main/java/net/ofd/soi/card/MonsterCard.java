@@ -1,6 +1,5 @@
 /*
- * Copyright (c) 2014 OnyxFox Development
- *
+ * Copyright (c) 2015. OnyxFox Development
  * This file is part of SOI.
  *
  * SOI is free software: you can redistribute it and/or modify

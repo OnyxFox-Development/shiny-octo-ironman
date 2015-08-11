@@ -1,0 +1,36 @@
+def modName
+idea {
+    modName = module.name
+    module {
+        downloadSources = true
+        downloadJavadoc = false
+    }
+    workspace.iws.withXml { xmlFile ->
+        def runManager = xmlFile.asNode().component.find { it.@name == 'RunManager' }
+        def runConf = runManager.appendNode('configuration', [default    : "false",
+                                                              name       : "SOI",
+                                                              type       : "Application",
+                                                              factoryName: "Application",
+                                                              default    : "false"])
+        runConf.appendNode('extension', [name           : "coverage",
+                                         enabled        : "false",
+                                         sample_coverage: "true",
+                                         runner         : "idea"])
+
+        runConf.appendNode("option", [name: "MAIN_CLASS_NAME", value: "net.ofd.soi.SOI"]);
+        runConf.appendNode("option", [name: "VM_PARAMETERS", value: ""]);
+        runConf.appendNode("option", [name: "PROGRAM_PARAMETERS", value: ""]);
+        runConf.appendNode("option", [name: "WORKING_DIRECTORY", value: "file://\$PROJECT_DIR\$"]);
+        runConf.appendNode("option", [name: "ALTERNATIVE_JRE_PATH_ENABLED", value: "false"]);
+        runConf.appendNode("option", [name: "ALTERNATIVE_JRE_PATH", value: ""]);
+        runConf.appendNode("option", [name: "ENABLE_SWING_INSPECTOR", value: "false"]);
+        runConf.appendNode("option", [name: "ENV_VARIABLES"]);
+        runConf.appendNode("option", [name: "PASS_PARENT_ENVS", value: "true"]);
+        runConf.appendNode("module", [name: rootProject.idea.module.name]);
+        runConf.appendNode("envs");
+        runConf.appendNode("RunnerSettings", ["RunnerId", "Run"]);
+        runConf.appendNode("ConfigurationWrapper", ["RunnerId", "Run"]);
+        runConf.appendNode("method");
+        runManager.@selected = 'Application.SOI'
+    }
+}
