@@ -20,11 +20,9 @@ package net.ofd.soi.card.effect;
 
 import net.ofd.soi.player.Player;
 
-public class TheeHumpLacoodaEffect extends Effect implements IEffect
-{
+public class TheeHumpLacoodaEffect extends Effect implements IEffect {
 	@Override
-	public void run ( Player player )
-	{
+	public void run(Player player) {
 
 	}
 }

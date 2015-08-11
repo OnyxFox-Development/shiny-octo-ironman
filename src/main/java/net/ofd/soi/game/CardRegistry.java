@@ -21,22 +21,45 @@ package net.ofd.soi.game;
 import net.ofd.soi.SOI;
 import net.ofd.soi.card.Card;
 import net.ofd.soi.event.CardRegisterEvent;
+import net.ofd.soi.reference.Files;
+import net.ofd.soi.util.DataFileHelper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class CardRegistry
-{
-	private static Map< String, Card > Cards = new HashMap<>();
+public class CardRegistry {
+	private static Map<String, Card> Cards = new HashMap<>();
+	private static Map<String, Card> CustomCards = new HashMap<>();
 
-	public static void registerCard ( String unlocalizedCardName, Card card )
-	{
-		if (!SOI.EVENT_BUS.post(new CardRegisterEvent(card))) {
+	public static Map<String, Card> getCustomCards() {
+		return CustomCards;
+	}
+
+	public static void registerCard(String unlocalizedCardName, Card card) {
+		if (!SOI.EVENT_BUS.post(new CardRegisterEvent(unlocalizedCardName, card))) {
 			Cards.put(unlocalizedCardName, card);
 		}
 	}
 
-	public Card getCardByName(String name) {
+	public static void registerCustomCard(String unlocalizedCardName, Card card) {
+		CustomCards.put(unlocalizedCardName, card);
+		registerCard(unlocalizedCardName, card);
+		DataFileHelper.writeCardDataToJsonFile(Files.customCardJson);
+	}
+
+	public static Card[] getCardsByType(Card.CardType cardType) {
+		List<Card> out = new ArrayList<>();
+		for (Map.Entry<String, Card> card : Cards.entrySet()) {
+			if (card.getValue().getCardType().equals(cardType)) {
+				out.add(card.getValue());
+			}
+		}
+		return out.toArray(new Card[out.size()]);
+	}
+
+	public static Card getCardByName(String name) {
 		return Cards.get(name);
 	}
 }

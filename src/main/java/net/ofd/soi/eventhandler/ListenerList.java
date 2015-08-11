@@ -125,7 +125,7 @@ public class ListenerList {
 		/**
 		 * Returns a ArrayList containing all listeners for this event,
 		 * and all parent events for the specified priority.
-		 * <p>
+		 * <p/>
 		 * The list is returned with the listeners for the children events first.
 		 *
 		 * @param priority The Priority to get
@@ -142,9 +142,9 @@ public class ListenerList {
 		/**
 		 * Returns a full list of all listeners for all priority levels.
 		 * Including all parent listeners.
-		 * <p>
+		 * <p/>
 		 * List is returned in proper priority order.
-		 * <p>
+		 * <p/>
 		 * Automatically rebuilds the internal Array cache if its information is out of date.
 		 *
 		 * @return Array containing listeners

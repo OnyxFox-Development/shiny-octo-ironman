@@ -18,45 +18,37 @@
 
 package net.ofd.soi.cli;
 
-public class Dimension
-{
-	private int[] Dimensions = new int[] { };
+public class Dimension {
+	private int[] Dimensions = new int[]{};
 
-	public Dimension ( int width, int height )
-	{
-		Dimensions[ 0 ] = width;
-		Dimensions[ 1 ] = height;
+	public Dimension(int width, int height) {
+		Dimensions[0] = width;
+		Dimensions[1] = height;
 	}
 
-	public int[] getDimensions ()
-	{
+	public int[] getDimensions() {
 		return Dimensions;
 	}
 
-	public int[] setDimensions ( int width, int height )
-	{
-		Dimensions[ 0 ] = width;
-		Dimensions[ 1 ] = height;
+	public int[] setDimensions(int width, int height) {
+		Dimensions[0] = width;
+		Dimensions[1] = height;
 		return Dimensions;
 	}
 
-	public int getWidth ()
-	{
-		return getDimensions()[ 0 ];
+	public int getWidth() {
+		return getDimensions()[0];
 	}
 
-	public void setWidth ( int width )
-	{
-		setDimensions( width, getHeight() );
+	public void setWidth(int width) {
+		setDimensions(width, getHeight());
 	}
 
-	public int getHeight ()
-	{
-		return getDimensions()[ 1 ];
+	public int getHeight() {
+		return getDimensions()[1];
 	}
 
-	public void setHeight ( int height )
-	{
-		setDimensions( getWidth(), height );
+	public void setHeight(int height) {
+		setDimensions(getWidth(), height);
 	}
 }

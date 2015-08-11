@@ -18,29 +18,33 @@
 
 package net.ofd.soi.card;
 
-public class SpellCard extends Card
-{
-	private SpellType CardSpellType;
+public class SpellCard extends Card {
+	private Type CardSpellType;
 
-	public SpellCard ()
-	{
-		super();
+	public SpellCard() {
+		super(Card.CardType.SPELL);
 	}
 
 	@Override
-	public SpellCard setCardName ( String cardName )
-	{
-		return ( SpellCard ) super.setCardName( cardName );
+	public SpellCard setCardName(String cardName) {
+		return (SpellCard) super.setCardName(cardName);
 	}
 
-	public SpellType getCardSpellType ()
-	{
+	public SpellCard.Type getCardSpellType() {
 		return CardSpellType;
 	}
 
-	public SpellCard setCardSpellType ( SpellType cardSpellType )
-	{
+	public SpellCard setCardSpellType(Type cardSpellType) {
 		CardSpellType = cardSpellType;
 		return this;
+	}
+
+	public enum Type {
+		NORMAL,
+		CONTINUOUS,
+		EQUIP,
+		QUICKPLAY,
+		FIELD,
+		RITUAL,
 	}
 }

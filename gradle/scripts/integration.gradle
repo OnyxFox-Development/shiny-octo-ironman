@@ -3,7 +3,7 @@ idea {
     modName = module.name
     module {
         downloadSources = true
-        downloadJavadoc = false
+        downloadJavadoc = true
     }
     workspace.iws.withXml { xmlFile ->
         def runManager = xmlFile.asNode().component.find { it.@name == 'RunManager' }
@@ -20,7 +20,7 @@ idea {
         runConf.appendNode("option", [name: "MAIN_CLASS_NAME", value: "net.ofd.soi.SOI"]);
         runConf.appendNode("option", [name: "VM_PARAMETERS", value: ""]);
         runConf.appendNode("option", [name: "PROGRAM_PARAMETERS", value: ""]);
-        runConf.appendNode("option", [name: "WORKING_DIRECTORY", value: "file://\$PROJECT_DIR\$"]);
+        runConf.appendNode("option", [name: "WORKING_DIRECTORY", value: "file://\$PROJECT_DIR\$/run"]);
         runConf.appendNode("option", [name: "ALTERNATIVE_JRE_PATH_ENABLED", value: "false"]);
         runConf.appendNode("option", [name: "ALTERNATIVE_JRE_PATH", value: ""]);
         runConf.appendNode("option", [name: "ENABLE_SWING_INSPECTOR", value: "false"]);
@@ -32,5 +32,6 @@ idea {
         runConf.appendNode("ConfigurationWrapper", ["RunnerId", "Run"]);
         runConf.appendNode("method");
         runManager.@selected = 'Application.SOI'
+        mkdir("run")
     }
 }

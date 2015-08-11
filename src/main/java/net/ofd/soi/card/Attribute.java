@@ -18,8 +18,7 @@
 
 package net.ofd.soi.card;
 
-public enum Attribute
-{
+public enum Attribute {
 	DARK,
 	LIGHT,
 	EARTH,

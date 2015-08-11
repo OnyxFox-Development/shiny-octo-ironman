@@ -18,10 +18,8 @@
 
 package net.ofd.soi.card.effect;
 
-public class Effect
-{
-	public Effect ()
-	{
+public class Effect {
+	public Effect() {
 
 	}
 }

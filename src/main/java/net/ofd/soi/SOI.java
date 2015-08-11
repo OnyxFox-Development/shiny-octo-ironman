@@ -18,13 +18,18 @@
 
 package net.ofd.soi;
 
+import com.google.gson.Gson;
 import net.ofd.soi.eventhandler.EventBus;
 import net.ofd.soi.game.Game;
+import net.ofd.soi.init.Cards;
 
 public class SOI {
 	public static EventBus EVENT_BUS = new EventBus();
+	public static Gson gson = new Gson();
 
 	public static void main(String[] args) {
+		Cards.init();
+		Cards.initCustomCards();
 		Game game = new Game();
 		game.start();
 	}

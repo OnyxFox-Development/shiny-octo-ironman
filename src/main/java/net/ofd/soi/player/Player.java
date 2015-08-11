@@ -21,33 +21,27 @@ package net.ofd.soi.player;
 import net.ofd.soi.error.InvalidNameException;
 import net.ofd.soi.util.UserInputHelper;
 
-public class Player
-{
+public class Player {
 	private static String NameRegex = "(?i:[a-z0-9]+)";
 
 	private String Name;
 
-	public Player () throws InvalidNameException
-	{
-		this( UserInputHelper.promptBasic( "Player Name" ) );
+	public Player() throws InvalidNameException {
+		this(UserInputHelper.promptBasic("Player Name"));
 	}
 
-	public Player ( String name ) throws InvalidNameException
-	{
-		if ( ! name.matches( NameRegex ) )
-		{
-			throw new InvalidNameException( getName() );
+	public Player(String name) throws InvalidNameException {
+		if (!name.matches(NameRegex)) {
+			throw new InvalidNameException(getName());
 		}
 		this.Name = name;
 	}
 
-	public String getName ()
-	{
+	public String getName() {
 		return Name;
 	}
 
-	public Player setName ( String name )
-	{
+	public Player setName(String name) {
 		Name = name;
 		return this;
 	}

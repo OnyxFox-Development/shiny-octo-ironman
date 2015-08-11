@@ -28,7 +28,7 @@ public class Event {
 	 * Determine if this function is cancelable at all.
 	 *
 	 * @return If access to setCanceled should be allowed
-	 * <p>
+	 * <p/>
 	 * Note:
 	 * Events with the Cancelable annotation will have this method automatically added to return true.
 	 */
@@ -48,7 +48,7 @@ public class Event {
 	/**
 	 * Sets the state of this event, not all events are cancelable, and any attempt to
 	 * cancel a event that can't be will result in a IllegalArgumentException.
-	 * <p>
+	 * <p/>
 	 * The functionality of setting the canceled state is defined on a per-event bases.
 	 *
 	 * @param cancel The new canceled value
@@ -62,7 +62,7 @@ public class Event {
 
 	/**
 	 * Determines if this event expects a significant result value.
-	 * <p>
+	 * <p/>
 	 * Note:
 	 * Events with the HasResult annotation will have this method automatically added to return true.
 	 */
@@ -80,7 +80,7 @@ public class Event {
 	/**
 	 * Sets the result value for this event, not all events can have a result set, and any attempt to
 	 * set a result for a event that isn't expecting it will result in a IllegalArgumentException.
-	 * <p>
+	 * <p/>
 	 * The functionality of setting the result is defined on a per-event bases.
 	 *
 	 * @param value The new result

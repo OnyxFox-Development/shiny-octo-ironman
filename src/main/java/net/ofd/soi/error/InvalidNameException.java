@@ -18,13 +18,11 @@
 
 package net.ofd.soi.error;
 
-public class InvalidNameException extends Exception
-{
+public class InvalidNameException extends Exception {
 	public final String Name;
 
-	public InvalidNameException ( String s )
-	{
-		super( String.format( "Name '%s' contains invalid characters", s ) );
+	public InvalidNameException(String s) {
+		super(String.format("Name '%s' contains invalid characters", s));
 		Name = s;
 	}
 }

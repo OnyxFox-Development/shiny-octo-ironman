@@ -18,23 +18,46 @@
 
 package net.ofd.soi.card;
 
-public class Card
-{
+public class Card {
 	private String CardName = "card.null.name";
+	private CardType cardType = CardType.NONE;
 
-	public Card ()
-	{
+	public Card() {
+	}
+
+	public Card(CardType type) {
+		this.cardType = type;
 	}
 
 
-	public String getCardName ()
-	{
+	public String getCardName() {
 		return CardName;
 	}
 
-	public Card setCardName ( String cardName )
-	{
+	public Card setCardName(String cardName) {
 		CardName = cardName;
 		return this;
+	}
+
+	public CardType getCardType() {
+		return cardType;
+	}
+
+	public enum CardType {
+		NONE(Card.class),
+		MONSTER(MonsterCard.class),
+		SPELL(SpellCard.class),
+		TRAP(TrapCard.class);
+
+		private Class<? extends Card> cardClass;
+
+		CardType(Class<? extends Card> card) {
+
+			cardClass = card;
+		}
+
+		public Class<? extends Card> getCardClass() {
+			return cardClass;
+		}
 	}
 }

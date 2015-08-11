@@ -18,16 +18,19 @@
 
 package net.ofd.soi.card;
 
-public class TrapCard extends Card
-{
-	public TrapCard ()
-	{
-		super();
+public class TrapCard extends Card {
+	public TrapCard() {
+		super(Card.CardType.TRAP);
 	}
 
 	@Override
-	public TrapCard setCardName ( String cardName )
-	{
-		return ( TrapCard ) super.setCardName( cardName );
+	public TrapCard setCardName(String cardName) {
+		return (TrapCard) super.setCardName(cardName);
+	}
+
+	public enum Type {
+		NORMAL,
+		CONTINUOUS,
+		COUNTER,
 	}
 }

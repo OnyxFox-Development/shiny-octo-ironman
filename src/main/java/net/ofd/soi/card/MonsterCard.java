@@ -18,89 +18,114 @@
 
 package net.ofd.soi.card;
 
-public class MonsterCard extends Card
-{
+public class MonsterCard extends Card {
 	private Attribute CardAttribute;
 	private int Atk = 0;
 	private int Def = 0;
-	private MonsterType Type;
-	private SecondaryMonsterType SecondType;
+	private MonsterCard.Type Type;
+	private SecondaryType SecondType;
 	private int Level = 0;
 
-	public MonsterCard ()
-	{
-		super();
+	public MonsterCard() {
+		super(Card.CardType.MONSTER);
 	}
 
-	public Attribute getCardAttribute ()
-	{
+	public Attribute getCardAttribute() {
 		return CardAttribute;
 	}
 
-	public MonsterCard setCardAttribute ( Attribute cardAttribute )
-	{
+	public MonsterCard setCardAttribute(Attribute cardAttribute) {
 		CardAttribute = cardAttribute;
 		return this;
 	}
 
-	public int getAtk ()
-	{
+	public int getAtk() {
 		return Atk;
 	}
 
-	public MonsterCard setAtk ( int atk )
-	{
+	public MonsterCard setAtk(int atk) {
 		Atk = atk;
 		return this;
 	}
 
-	public int getDef ()
-	{
+	public int getDef() {
 		return Def;
 	}
 
-	public MonsterCard setDef ( int def )
-	{
+	public MonsterCard setDef(int def) {
 		Def = def;
 		return this;
 	}
 
-	public MonsterType getType ()
-	{
+	public MonsterCard.Type getType() {
 		return Type;
 	}
 
-	public MonsterCard setType ( MonsterType type )
-	{
+	public MonsterCard setType(MonsterCard.Type type) {
 		this.Type = type;
 		return this;
 	}
 
 	@Override
-	public MonsterCard setCardName ( String cardName )
-	{
-		return ( MonsterCard ) super.setCardName( cardName );
+	public MonsterCard setCardName(String cardName) {
+		return (MonsterCard) super.setCardName(cardName);
 	}
 
-	public int getLevel ()
-	{
+	public int getLevel() {
 		return Level;
 	}
 
-	public MonsterCard setLevel ( int level )
-	{
+	public MonsterCard setLevel(int level) {
 		Level = level;
 		return this;
 	}
 
-	public SecondaryMonsterType getSecondType ()
-	{
+	public MonsterCard.SecondaryType getSecondType() {
 		return SecondType;
 	}
 
-	public MonsterCard setSecondType ( SecondaryMonsterType secondType )
-	{
+	public MonsterCard setSecondType(MonsterCard.SecondaryType secondType) {
 		SecondType = secondType;
 		return this;
+	}
+
+	public enum Type {
+		SPELLCASTER,
+		DRAGON,
+		ZOMBIE,
+		WARRIOR,
+		BEASTWARRIOR,
+		BEAST,
+		WINGEDBEAST,
+		FIEND,
+		FAIRY,
+		INSECT,
+		DINOSAUR,
+		REPTILE,
+		FISH,
+		SEASERPENT,
+		AQUA,
+		PYRO,
+		THUNDER,
+		ROCK,
+		PLANT,
+		MACHINE,
+		PSYCHIC,
+		DIVINEBEAST,
+	}
+
+	public enum SecondaryType {
+		NORMAL,
+		EFFECT,
+		RITUAL,
+		FUSION,
+		SYNCHRO,
+		XYZ,
+		TOON,
+		SPIRIT,
+		UNION,
+		GEMINI,
+		TUNER,
+		FLIP,
 	}
 }

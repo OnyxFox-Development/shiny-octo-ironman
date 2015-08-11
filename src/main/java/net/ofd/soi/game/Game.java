@@ -22,42 +22,33 @@ import net.ofd.soi.error.InvalidNameException;
 import net.ofd.soi.player.Player;
 import net.ofd.soi.util.CliHelper;
 
-public class Game
-{
+public class Game {
 	private int playerTurn = 0;
 
-	public Game ()
-	{
-		while ( true )
-		{
-			try
-			{
+	public Game() {
+		while (true) {
+			try {
 				Player player1 = new Player();
 				Player player2 = new Player();
-				PlayerRegistry.registerPlayer( player1 );
-				PlayerRegistry.registerPlayer( player2 );
+				PlayerRegistry.registerPlayer(player1);
+				PlayerRegistry.registerPlayer(player2);
 				break;
-			}
-			catch ( InvalidNameException e )
-			{
-				CliHelper.print( String.format( "Invalid characters in name '%s'", e.Name ) );
+			} catch (InvalidNameException e) {
+				CliHelper.print(String.format("Invalid characters in name '%s'", e.Name));
 			}
 		}
 
 	}
 
-	public int getPlayerTurn ()
-	{
+	public int getPlayerTurn() {
 		return playerTurn;
 	}
 
-	public void setPlayerTurn ( int playerTurn )
-	{
+	public void setPlayerTurn(int playerTurn) {
 		this.playerTurn = playerTurn;
 	}
 
-	public void start ()
-	{
+	public void start() {
 
 	}
 }

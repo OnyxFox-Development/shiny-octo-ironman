@@ -20,7 +20,6 @@ package net.ofd.soi.card.effect;
 
 import net.ofd.soi.player.Player;
 
-public interface IEffect
-{
+public interface IEffect {
 	void run(Player player);
 }

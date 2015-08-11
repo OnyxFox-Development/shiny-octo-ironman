@@ -20,12 +20,10 @@ package net.ofd.soi.util;
 
 import java.util.Scanner;
 
-public class UserInputHelper
-{
-	public static String promptBasic ( String text )
-	{
-		Scanner s = new Scanner( System.in );
-		CliHelper.print( text + ": ", false );
+public class UserInputHelper {
+	public static String promptBasic(String text) {
+		Scanner s = new Scanner(System.in);
+		CliHelper.print(text + ": ", false);
 		return s.next();
 	}
 }

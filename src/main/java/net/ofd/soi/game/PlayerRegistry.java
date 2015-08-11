@@ -23,22 +23,18 @@ import net.ofd.soi.player.Player;
 
 import java.util.ArrayList;
 
-public class PlayerRegistry
-{
-	private static ArrayList< Player > Players = new ArrayList<>();
+public class PlayerRegistry {
+	private static ArrayList<Player> Players = new ArrayList<>();
 
-	public static void registerPlayer ( Player player, int playerId )
-	{
-		Players.add( playerId, player );
+	public static void registerPlayer(Player player, int playerId) {
+		Players.add(playerId, player);
 	}
 
-	public static void registerPlayer ( Player player ) throws InvalidNameException
-	{
-		registerPlayer( player, getGloballyUniquePlayerId() );
+	public static void registerPlayer(Player player) throws InvalidNameException {
+		registerPlayer(player, getGloballyUniquePlayerId());
 	}
 
-	public static int getGloballyUniquePlayerId ()
-	{
+	public static int getGloballyUniquePlayerId() {
 		return Players.size();
 	}
 }
